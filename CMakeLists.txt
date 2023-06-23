@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 3.14)
 project(CPP_BOILERPLATE VERSION 0.0.1 LANGUAGES CXX)
+
 # --------------------------------------------------------------------------------
 #                                  Locate files
 # --------------------------------------------------------------------------------
 set(SOURCES src/sambel.cpp)
 set(LIBRARY_NAME sambelProject)  # Default name for the library built from src/*.cpp
+# Debugging purpose
+set(CMAKE_BUILD_TYPE Debug)
+# add_definitions(-DDEBUG)
 
 # --------------------------------------------------------------------------------
 #                                     Build
