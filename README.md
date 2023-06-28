@@ -4,21 +4,26 @@
 
 ```
 ./cpp_boilerplate
-├── app
-│   └── main.cpp
 ├── CMakeLists.txt
-├── inc
-│   └── sambel.h
 ├── LICENSE
 ├── README.md
+├── app
+│   └── main.cpp
+├── configs
+│   ├── c_cpp_properties.json
+│   ├── launch.json
+│   └── settings.json
+├── inc
+│   ├── lat1.h
+│   └── sambel.h
+├── runner.sh
 └── src
+    ├── lat1.cpp
     └── sambel.cpp
 ```
 
-## How to build (cmake)
+## How to cmake build
 
 ```
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
-cmake --build build
-cd build && ./sambel
+./runner.sh
 ```
