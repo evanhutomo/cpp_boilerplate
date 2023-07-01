@@ -1,6 +1,10 @@
 #include "lat1.h"
 #include <limits.h>
 #include <unistd.h>
+#include <locale>   // for std::wstring_convert
+#include <codecvt>  // for std::codecvt_utf8
+#include <array>
+#include <cstring>
 
 namespace LATCPP::BASIC1 {
     Latihan1::Latihan1(){}
@@ -47,5 +51,19 @@ namespace LATCPP::BASIC1 {
         {
             std::cout << "Backslash not found in the string" << std::endl;
         }
-    }    
+    }
+
+    void Latihan1::exampleStrncpy(std::wstring src) {
+        std::wstring source(src);
+        std::array<char, 1024> destination;
+
+        std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+        std::string narrowStr = converter.to_bytes(source);
+
+        strncpy(destination.data(), narrowStr.c_str(), destination.size() - 1);
+        destination[destination.size() - 1] = '\0';  // Ensure null-termination
+
+        std::cout << "Source: " << narrowStr << std::endl;
+        std::cout << "Destination: " << destination.data() << std::endl;
+    }
 }
